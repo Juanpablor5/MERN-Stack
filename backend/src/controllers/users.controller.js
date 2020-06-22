@@ -19,7 +19,7 @@ userCtrl.createUser = async (req, res) => {
 };
 
 userCtrl.deleteUser = async (req, res) => {
-    await User.findOneAndDelete(req.params.id);
+    await User.findByIdAndDelete(req.params.id);
     res.json({ message: 'Usuario eliminado' })
 };
 
