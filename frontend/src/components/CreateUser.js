@@ -14,7 +14,7 @@ export default class CreateUser extends Component {
     }
 
     getUsers = async () => {
-        const res = await axios.get('/api/users')
+        const res = await axios.get('http://localhost:4000/api/users')
         this.setState({
             users: res.data
         });
@@ -41,7 +41,7 @@ export default class CreateUser extends Component {
         // });
 
         // if (!encontrado) {
-            await axios.post('/api/users', { username: this.state.username })
+            await axios.post('http://localhost:4000/api/users', { username: this.state.username })
             this.getUsers();
 
             // Regresa el usuario a vacío luego de guardar
@@ -53,7 +53,7 @@ export default class CreateUser extends Component {
 
     // Hace el método DELETE
     deleteUser = async (id) => {
-        await axios.delete('/api/users/' + id)
+        await axios.delete('http://localhost:4000/api/users/' + id)
         this.getUsers();
     }
 
